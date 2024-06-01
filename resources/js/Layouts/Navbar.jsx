@@ -4,6 +4,7 @@ import NavLink from '@/Components/NavLink';
 import Dropdown from '@/Components/Dropdown';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import { useState } from 'react';
+import { IconShoppingCart } from '@tabler/icons-react';
 
 export default function Navbar() {
     const { auth } = usePage().props;
@@ -29,6 +30,10 @@ export default function Navbar() {
 
                     {auth.user ? (
                         <div className='hidden sm:ml-6 sm:flex sm:items-center'>
+                            <Link className='flex items-center gap-x-2 text-gray-500' href={route('carts.index')}>
+                                <IconShoppingCart className='w-5 h-5 stroke-[1.5]' />
+                                <strong className='font-semibold text-sm'>{auth.user.cartCount}</strong>
+                            </Link>
                             <div className='relative ml-3'>
                                 <Dropdown>
                                     <Dropdown.Trigger>
@@ -54,6 +59,7 @@ export default function Navbar() {
                                     <Dropdown.Content>
                                         <Dropdown.Link href={route('dashboard')}>Dashboard</Dropdown.Link>
                                         <Dropdown.Link href={route('profile.edit')}>Profile</Dropdown.Link>
+                                        <Dropdown.Link href={route('shipping-addresses.index')}>Alamat Pengiriman</Dropdown.Link>
                                         <Dropdown.Link href={route('logout')} method='post' as='button'>Log Out</Dropdown.Link>
                                     </Dropdown.Content>
                                 </Dropdown>
