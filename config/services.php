@@ -31,4 +31,18 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'rajaongkir' => [
+        'origin' => env('RAJAONGKIR_ORIGIN', '278'),
+        'origin_type' => env('RAJAONGKIR_ORIGIN_TYPE', 'city'),
+        'key' => env('RAJAONGKIR_KEY'),
+        'base_url' => env('RAJAONGKIR_BASE_URL', 'https://api.rajaongkir.com/starter'),
+    ],
+
+    'midtrans' => [
+        'merchant_id' => env('MIDTRANS_MERCHANT_ID'),
+        'client_key' => env('MIDTRANS_CLIENT_KEY'),
+        'server_key' => env('MIDTRANS_SERVER_KEY'),
+        'base_url' => env('MIDTRANS_BASE_URL'),
+    ],
+
 ];
