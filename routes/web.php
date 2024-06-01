@@ -52,6 +52,12 @@ Route::resource('shipping-addresses', ShippingAddressController::class)
 ->except('show')
 ->middleware('auth');
 
+Route::get('products/list', [ProductController::class, 'list'])->name('products.list');
+
+Route::put('transactions/{transaction}/update', [TransactionController::class, 'update'])->name('transactions.update');
+
+Route::get('transactions/list', [TransactionController::class, 'index'])->name('transactions.index');
+
 Route::get('transactions/{transaction}', [TransactionController::class, 'show'])->name('transactions.show');
 
 Route::middleware('auth')->group(function () {

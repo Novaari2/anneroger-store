@@ -59,6 +59,12 @@ export default function Navbar() {
                                     <Dropdown.Content>
                                         <Dropdown.Link href={route('dashboard')}>Dashboard</Dropdown.Link>
                                         <Dropdown.Link href={route('profile.edit')}>Profile</Dropdown.Link>
+                                        {auth.user.is_admin && (
+                                            <>
+                                                <Dropdown.Link href={route('transactions.index')}>Customer Order</Dropdown.Link>
+                                                <Dropdown.Link href={route('products.list')}>Daftar Produk</Dropdown.Link>
+                                            </>
+                                        )}
                                         <Dropdown.Link href={route('shipping-addresses.index')}>Alamat Pengiriman</Dropdown.Link>
                                         <Dropdown.Link href={route('logout')} method='post' as='button'>Log Out</Dropdown.Link>
                                     </Dropdown.Content>

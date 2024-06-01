@@ -27,6 +27,7 @@
         "@tabler/icons-react": "^3.5.0",
         "laravel-echo": "^1.16.1",
         "pusher-js": "^8.4.0-rc2",
-        "react-copy-to-clipboard": "^5.1.0"
+        "react-copy-to-clipboard": "^5.1.0",
+        "react-number-format": "^5.4.0"
     }
 }

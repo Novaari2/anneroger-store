@@ -37,6 +37,7 @@ class HandleInertiaRequests extends Middleware
                     'name' => $request->user()->name,
                     'email' => $request->user()->email,
                     'cartCount' => $request->user()?->carts()->whereNull('placed_at')?->count() ?? 0,
+                    'is_admin' => $request->user()?->hasRole('admin'),
                 ] : null,
             ],
             'ziggy' => function () use ($request) {
@@ -44,6 +45,12 @@ class HandleInertiaRequests extends Middleware
                     'location' => $request->url(),
                 ]);
             },
+
+            'flash_message' => fn () => [
+                'type' => $request->session()->get('type'),
+                'title' => $request->session()->get('title'),
+                'message' => $request->session()->get('message'),
+            ],
         ]);
     }
 }
